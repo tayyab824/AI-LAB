@@ -1,0 +1,80 @@
+===== lab3_bfs_dfs.py =====
+BFS 1: process=A, queue=[]
+       after expansion queue=['B', 'C']
+BFS 2: process=B, queue=['C']
+       after expansion queue=['C', 'D', 'E']
+BFS 3: process=C, queue=['D', 'E']
+       after expansion queue=['D', 'E', 'F']
+BFS 4: process=D, queue=['E', 'F']
+       after expansion queue=['E', 'F', 'G']
+BFS 5: process=E, queue=['F', 'G']
+       after expansion queue=['F', 'G']
+BFS 6: process=F, queue=['G']
+       after expansion queue=['G']
+BFS 7: process=G, queue=[]
+BFS path: A -> B -> D -> G
+BFS visit order: ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+
+DFS 1: process=A, stack(top first)=[]
+       after expansion stack(top first)=['B', 'C']
+DFS 2: process=B, stack(top first)=['C']
+       after expansion stack(top first)=['D', 'E', 'C']
+DFS 3: process=D, stack(top first)=['E', 'C']
+       after expansion stack(top first)=['G', 'E', 'C']
+DFS 4: process=G, stack(top first)=['E', 'C']
+DFS path: A -> B -> D -> G
+DFS visit order: ['A', 'B', 'D', 'G']
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+===== lab3_depth_search.py =====
+DLS limit=1: CUTOFF; path=None
+DLS limit=2: CUTOFF; path=None
+DLS limit=3: FOUND; path=['A', 'B', 'D', 'G']
+DLS limit=4: FOUND; path=['A', 'B', 'D', 'G']
+
+IDDFS:
+max_depth=1: CUTOFF; attempts=[1]; path=None
+max_depth=2: CUTOFF; attempts=[1, 2]; path=None
+max_depth=3: FOUND; attempts=[1, 2, 3]; path=['A', 'B', 'D', 'G']
+max_depth=4: FOUND; attempts=[1, 2, 3]; path=['A', 'B', 'D', 'G']
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
+
+===== lab3_ucs.py =====
+Process A at cumulative cost 0
+Process B at cumulative cost 1
+Process C at cumulative cost 2
+Process D at cumulative cost 2
+Process G at cumulative cost 3
+UCS path: A -> B -> D -> G
+UCS cost: 3
+Processing order: ['A', 'B', 'C', 'D', 'G']
+Independent path-cost check: 3
+BFS route on same topology: A -> G, cost = 10
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
