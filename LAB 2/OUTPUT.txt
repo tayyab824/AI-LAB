@@ -1,0 +1,9 @@
+STEP PREVIOUS   PERCEPT                  TARGET ACTION       SCENARIO
+1    NONE        29 C, True        COOL   SEND COMMAND Initial cooling demand
+2    COOL        29 C, True        COOL   NO COMMAND   Repeated same percept
+3    COOL        26 C, True        OFF    SEND COMMAND Exact upper boundary
+4    OFF         17 C, True        HEAT   SEND COMMAND Transition to heating
+5    HEAT        17 C, True        HEAT   NO COMMAND   Repeated heating demand
+6    HEAT        18 C, True        OFF    SEND COMMAND Exact lower boundary
+7    OFF         22 C, False       OFF    NO COMMAND   Empty room priority
+All assertions passed. Trace saved to lab2_trace.csv
