@@ -1,0 +1,80 @@
+=== A* ORIGINAL HEURISTIC ===
+EXPAND S: g=0, h=7, f=7
+  INSERT/UPDATE A: g=2, h=6, f=8
+  INSERT/UPDATE B: g=4, h=4, f=8
+  FRONTIER: [('A', 2, 8), ('B', 4, 8)]
+EXPAND A: g=2, h=6, f=8
+  INSERT/UPDATE C: g=4, h=5, f=9
+  INSERT/UPDATE D: g=7, h=3, f=10
+  FRONTIER: [('B', 4, 8), ('C', 4, 9), ('D', 7, 10)]
+EXPAND B: g=4, h=4, f=8
+  INSERT/UPDATE D: g=5, h=3, f=8
+  INSERT/UPDATE E: g=7, h=2, f=9
+  FRONTIER: [('D', 5, 8), ('C', 4, 9), ('E', 7, 9), ('D', 7, 10)]
+EXPAND D: g=5, h=3, f=8
+  INSERT/UPDATE G: g=8, h=0, f=8
+  FRONTIER: [('G', 8, 8), ('C', 4, 9), ('E', 7, 9), ('D', 7, 10)]
+EXPAND G: g=8, h=0, f=8
+PATH: S -> B -> D -> G
+RETURNED COST: 8 INDEPENDENT SUM: 8
+EXPANDED ORDER: ['S', 'A', 'B', 'D', 'G'] COUNT: 5
+\n=== UCS ZERO HEURISTIC ===
+EXPAND S: g=0, h=0, f=0
+  INSERT/UPDATE A: g=2, h=0, f=2
+  INSERT/UPDATE B: g=4, h=0, f=4
+  FRONTIER: [('A', 2, 2), ('B', 4, 4)]
+EXPAND A: g=2, h=0, f=2
+  INSERT/UPDATE C: g=4, h=0, f=4
+  INSERT/UPDATE D: g=7, h=0, f=7
+  FRONTIER: [('B', 4, 4), ('C', 4, 4), ('D', 7, 7)]
+EXPAND B: g=4, h=0, f=4
+  INSERT/UPDATE D: g=5, h=0, f=5
+  INSERT/UPDATE E: g=7, h=0, f=7
+  FRONTIER: [('C', 4, 4), ('D', 5, 5), ('D', 7, 7), ('E', 7, 7)]
+EXPAND C: g=4, h=0, f=4
+  INSERT/UPDATE G: g=9, h=0, f=9
+  FRONTIER: [('D', 5, 5), ('D', 7, 7), ('E', 7, 7), ('G', 9, 9)]
+EXPAND D: g=5, h=0, f=5
+  INSERT/UPDATE G: g=8, h=0, f=8
+  FRONTIER: [('D', 7, 7), ('E', 7, 7), ('G', 8, 8), ('G', 9, 9)]
+SKIP STALE D: g=7, f=7
+EXPAND E: g=7, h=0, f=7
+  FRONTIER: [('G', 8, 8), ('G', 9, 9)]
+EXPAND G: g=8, h=0, f=8
+PATH: S -> B -> D -> G
+RETURNED COST: 8 INDEPENDENT SUM: 8
+EXPANDED ORDER: ['S', 'A', 'B', 'C', 'D', 'E', 'G'] COUNT: 7
+\n=== A* WITH h(C)=10 ===
+EXPAND S: g=0, h=7, f=7
+  INSERT/UPDATE A: g=2, h=6, f=8
+  INSERT/UPDATE B: g=4, h=4, f=8
+  FRONTIER: [('A', 2, 8), ('B', 4, 8)]
+EXPAND A: g=2, h=6, f=8
+  INSERT/UPDATE C: g=4, h=10, f=14
+  INSERT/UPDATE D: g=7, h=3, f=10
+  FRONTIER: [('B', 4, 8), ('D', 7, 10), ('C', 4, 14)]
+EXPAND B: g=4, h=4, f=8
+  INSERT/UPDATE D: g=5, h=3, f=8
+  INSERT/UPDATE E: g=7, h=2, f=9
+  FRONTIER: [('D', 5, 8), ('E', 7, 9), ('D', 7, 10), ('C', 4, 14)]
+EXPAND D: g=5, h=3, f=8
+  INSERT/UPDATE G: g=8, h=0, f=8
+  FRONTIER: [('G', 8, 8), ('E', 7, 9), ('D', 7, 10), ('C', 4, 14)]
+EXPAND G: g=8, h=0, f=8
+PATH: S -> B -> D -> G
+RETURNED COST: 8 INDEPENDENT SUM: 8
+EXPANDED ORDER: ['S', 'A', 'B', 'D', 'G'] COUNT: 5
+\n=== SUMMARY ===
+A* path= ['S', 'B', 'D', 'G'] cost= 8 independent_sum= 8 expanded= ['S', 'A', 'B', 'D', 'G'] count= 5
+UCS path= ['S', 'B', 'D', 'G'] cost= 8 independent_sum= 8 expanded= ['S', 'A', 'B', 'C', 'D', 'E', 'G'] count= 7
+A* overestimate path= ['S', 'B', 'D', 'G'] cost= 8 independent_sum= 8 expanded= ['S', 'A', 'B', 'D', 'G'] count= 5
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
