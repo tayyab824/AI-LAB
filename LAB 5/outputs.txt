@@ -1,0 +1,52 @@
+TREE: R(MAX) -> A,B(MIN) -> A1,A2,B1,B2(MAX) -> leaves
+Original leaf values: A1=[3,5], A2=[6,9], B1=[1,2], B2=[0,-1]
+\n--- Original left-to-right order ---
+Minimax value: 5 leaf evaluations: 8
+Alpha-beta value: 5 leaf evaluations: 5
+Alpha-beta trace:
+  ('LEAF', 3)
+  ('LEAF', 5)
+  ('NODE', 'A1', 'MAX', 5)
+  ('LEAF', 6)
+  ('PRUNE', 'A2', 'remaining children', [9])
+  ('NODE', 'A2', 'MAX', 6)
+  ('NODE', 'A', 'MIN', 5)
+  ('LEAF', 1)
+  ('LEAF', 2)
+  ('NODE', 'B1', 'MAX', 2)
+  ('PRUNE', 'B', 'remaining children', ['B2'])
+  ('NODE', 'B', 'MIN', 2)
+  ('NODE', 'R', 'MAX', 5)
+\n--- Reordered branches ---
+Minimax value: 5 leaf evaluations: 8
+Alpha-beta value: 5 leaf evaluations: 7
+Alpha-beta trace:
+  ('LEAF', 0)
+  ('LEAF', -1)
+  ('NODE', 'B2', 'MAX', 0)
+  ('LEAF', 1)
+  ('PRUNE', 'B1', 'remaining children', [2])
+  ('NODE', 'B1', 'MAX', 1)
+  ('NODE', 'B', 'MIN', 0)
+  ('LEAF', 6)
+  ('LEAF', 9)
+  ('NODE', 'A2', 'MAX', 9)
+  ('LEAF', 3)
+  ('LEAF', 5)
+  ('NODE', 'A1', 'MAX', 5)
+  ('NODE', 'A', 'MIN', 5)
+  ('NODE', 'R', 'MAX', 5)
+\nSUMMARY
+Original: root value = 5 , Minimax leaves = 8 , Alpha-beta leaves = 5
+Reordered: root value = 5 , Minimax leaves = 8 , Alpha-beta leaves = 7
+Root value stays the same; alpha-beta leaf work can change with branch order.
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.
